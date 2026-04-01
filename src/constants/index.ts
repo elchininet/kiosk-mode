@@ -139,7 +139,7 @@ export enum ELEMENT {
     HA_DIALOG_LIGHT_SETTINGS = 'ha-more-info-control-select-container'
 }
 
-export const RESOURCE_WITH_SUFFIX_REGEXP = /^(.*?)( \([A-Z]\))?$/;
+export const RESOURCE_WITH_SUFFIX_REGEXP = /^(.*?)( \([^)]+\))?$/;
 
 export const TRUE = 'true';
 export const JS_TEMPLATE_REG = /^\s*\[\[\[([\s\S]+)\]\]\]\s*$/;

@@ -30,7 +30,7 @@ export const SELECTORS = {
 	ADD_DASHBOARD_DIALOG: 'ha-dialog-new-dashboard ha-dialog .content',
 	NEW_DASHBOARD_CARD: 'dashboard-card .card[aria-label="New dashboard from scratch"]',
 	ADD_NEW_DASHBOARD_DIALOG: 'dialog-lovelace-dashboard-detail ha-dialog ha-form',
-	ADD_NEW_DASBOARD_TITLE: 'ha-textfield input[name="title"]',
+	ADD_NEW_DASBOARD_TITLE: 'wa-input input[name="title"]',
 	ADD_NEW_DASHBOARD_ICON: 'ha-picker-field[aria-label="Icon"]',
 	ADD_NEW_DASHBOARD_ICON_LIST: 'wa-popover[aria-label="Icon"] ha-picker-combo-box .virtualizer-wrapper #list-item-0',
 	ADD_NEW_DASHBOARD_BUTTON: 'dialog-lovelace-dashboard-detail ha-dialog > ha-dialog-footer > ha-button[slot="primaryAction"] button',
@@ -159,6 +159,6 @@ export const TEXT_SELECTORS = {
 	CAMERA_ACTION: { hasText: 'Download snapshot' },
 	CLIMATE: { hasText: 'Ecobee' },
 	LIGHT: { hasText: 'Bed Light' },
-	TIMER: { hasText: 'laundry' },
+	TIMER: { hasText: 'Laundry' },
 	UPDATE_ACTION: { hasText: 'Update' }
 };
