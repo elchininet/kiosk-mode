@@ -766,7 +766,7 @@ class KioskMode implements KioskModeRunner {
 			.query(`${ELEMENT.TOOLBAR} > ${ELEMENT.ACTION_ITEMS} > ${ELEMENT.MENU_ITEM}`)
 			.all as Promise<NodeListOf<HTMLElement>>;
 
-		haIconButtonsPromise.then((haIconButtons: NodeListOf<HTMLElement>) => {
+		haIconButtonsPromise.then((haIconButtons) => {
 			addMenuItemsDataSelectors(haIconButtons, this.menuTranslations);
 		});
 
@@ -775,19 +775,20 @@ class KioskMode implements KioskModeRunner {
 			.query(`${ELEMENT.TOOLBAR} > ${ELEMENT.ACTION_ITEMS} > ${ELEMENT.DROPDOWN}`)
 			.all as Promise<NodeListOf<HTMLElement>>;
 
-		headerDropdownsPromise.then((headerDropdowns: NodeListOf<HTMLElement>) => {
-			addHeaderDropdownsDataSelectors(
-				headerDropdowns,
-				this.menuTranslations
-			);
-		});
-
 		const dropdownMenuItemsPromise = this.HAElements.HEADER
 			.selector
 			.query(`${ELEMENT.TOOLBAR} ${ELEMENT.DROPDOWN_MENU_ITEM}`)
 			.all as Promise<NodeListOf<HTMLElement>>;
 
-		dropdownMenuItemsPromise.then((dropdownMenuItems: NodeListOf<HTMLElement>) => {
+		Promise.all([
+			headerDropdownsPromise,
+			dropdownMenuItemsPromise
+		]).then(([headerDropdowns, dropdownMenuItems]) => {
+
+			addHeaderDropdownsDataSelectors(
+				headerDropdowns,
+				this.menuTranslations
+			);
 			addDropdownMenuItemsDataSelectors(
 				dropdownMenuItems,
 				this.menuTranslations
